@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificados</title>
+    <style>
+    body {
+        font-family: 'Georgia', serif;
+        background: linear-gradient(to bottom, #fdfdfd, #f0f0f0);
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #2c3e50;
+    }
+
+    .frame {
+        border: 10px solid #2c3e50;
+        padding: 20px;
+        max-width: 700px;
+        margin: auto;
+        background-color: white;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .seal {
+        background-color: #2980b9;
+        color: white;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        display: inline-block;
+        margin-bottom: 20px;
+        font-size: 1.1em;
+    }
+
+    .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .carousel img {
+        width: 100%;
+        display: none;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .carousel img.active {
+        display: block;
+    }
+
+    .buttons {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    button, .btn-voltar {
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: #2c3e50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        flex: 1 1 auto;
+        min-width: 120px;
+    }
+
+    button:hover, .btn-voltar:hover {
+        background-color: #34495e;
+    }
+
+    .voltar {
+        margin-top: 20px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 1.5em;
+        }
+
+        .frame {
+            padding: 15px;
+            border-width: 6px;
+        }
+
+        .seal {
+            font-size: 1em;
+            padding: 8px 16px;
+        }
+
+        button, .btn-voltar {
+            font-size: 0.9em;
+            padding: 8px 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .buttons {
+            flex-direction: column;
+        }
+
+        button, .btn-voltar {
+            width: 100%;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <div class="frame">
+        <h1>Meus Certificados</h1>
+        <div class="carousel">
+            <img src="cert1.jpg" alt="Certificado 1" class="active">
+            <img src="cert2.jpg" alt="Certificado 2">
+            <img src="cert3.jpg" alt="Certificado 3">
+            <img src="cert4.png" alt="Certificado 4">
+            <img src="cert5.png" alt="Certificado 5">
+            <img src="cert6.png" alt="Certificado 6">
+            <img src="cert7.png" alt="Certificado 7">
+            <img src="cert8.png" alt="Certificado 8">
+            <img src="cert9.png" alt="Certificado 9">
+        </div>
+        <div class="buttons">
+            <button onclick="prevImage()">◀ Anterior</button>
+            <button onclick="nextImage()">Próximo ▶</button>
+        </div>
+        <div class="voltar">
+            <a href="main.html" class="btn-voltar">⬅ Voltar ao Currículo</a>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+
+        function showImage(index) {
+            if (index < 0) index = images.length - 1;
+            if (index >= images.length) index = 0;
+            currentIndex = index;
+            images.forEach((img, i) => {
+                img.classList.remove('active');
+                if (i === currentIndex) img.classList.add('active');
+            });
+        }
+
+        function prevImage() {
+            showImage(currentIndex - 1);
+        }
+
+        function nextImage() {
+            showImage(currentIndex + 1);
+        }
+    </script>
+</body>
+</html>
