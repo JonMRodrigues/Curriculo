@@ -13,6 +13,7 @@
       font-size: 14px;
       color: #000;
       min-height: 100vh;
+      padding-top: 48px;
       background:
         radial-gradient(ellipse 120% 40% at 30% 100%, #4f9a2c 0%, #3d8a1f 55%, transparent 56%),
         radial-gradient(ellipse 100% 35% at 90% 105%, #62b13a 0%, #4a9a26 55%, transparent 56%),
@@ -66,7 +67,9 @@
     /* Banner */
     .banner {
       width: 100%;
-      height: 250px;
+      max-width: 1400px;
+      margin: 0 auto;
+      aspect-ratio: 4 / 1;
       background:
         url('banner.jpg') center / cover no-repeat,
         radial-gradient(ellipse 120% 60% at 30% 110%, #4f9a2c 0%, #3d8a1f 55%, transparent 56%),
@@ -78,7 +81,7 @@
     /* Perfil */
     .perfil-container {
       position: absolute;
-      top: 180px;
+      top: calc(min(100vw, 1400px) / 4 + 48px + 18px);
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
@@ -132,7 +135,7 @@
     /* Conteúdo principal - janela estilo XP */
     .conteudo {
       position: relative;
-      margin: 340px auto 60px;
+      margin: 450px auto 60px;
       max-width: 800px;
       padding: 52px 20px 20px;
       background: #ece9d8;
@@ -188,6 +191,10 @@
 
     a:hover {
       text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .conteudo { margin-top: 500px; }
     }
   </style>
 </head>
