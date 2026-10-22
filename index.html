@@ -5,21 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jonathan D. M. Rodrigues - Currículo</title>
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      font-family: Tahoma, Verdana, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 120% 40% at 30% 100%, #4f9a2c 0%, #3d8a1f 55%, transparent 56%),
+        radial-gradient(ellipse 100% 35% at 90% 105%, #62b13a 0%, #4a9a26 55%, transparent 56%),
+        linear-gradient(#2f6fd6 0%, #6aa8f0 55%, #bfe0ff 100%);
+      background-attachment: fixed;
     }
 
-    /* Navegação fixa */
+    /* Navegação fixa - barra de título azul estilo XP */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: #2c3e50;
-      padding: 12px 0;
+      padding: 6px 0;
       z-index: 1000;
+      background: linear-gradient(#3a8cff 0%, #0a5be0 12%, #0950d4 50%, #0a4bc8 88%, #0b3fa8 100%);
+      border-bottom: 2px solid #0a3fc4;
+      box-shadow: 0 2px 8px rgba(0,0,0,.4);
     }
 
     nav ul {
@@ -30,28 +40,38 @@
     }
 
     nav ul li {
-      display: inline;
-      margin: 0 20px;
+      display: inline-block;
+      margin: 2px 6px;
     }
 
     nav ul li a {
-      color: #ecf0f1;
+      display: inline-block;
+      padding: 4px 14px;
+      color: #fff;
       text-decoration: none;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 13px;
+      text-shadow: 1px 1px 1px #0a2a80;
+      border: 1px solid #fff;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #6aa3ff, #1c5fe0);
     }
 
     nav ul li a:hover {
-      color: #bdc3c7;
+      color: #fff;
+      text-decoration: none;
+      filter: brightness(1.15);
     }
 
     /* Banner */
     .banner {
       width: 100%;
       height: 250px;
-      background-image: url('banner.jpg'); /* Substitua pelo caminho da imagem */
-      background-size: cover;
-      background-position: center;
+      background:
+        url('banner.jpg') center / cover no-repeat,
+        radial-gradient(ellipse 120% 60% at 30% 110%, #4f9a2c 0%, #3d8a1f 55%, transparent 56%),
+        linear-gradient(#2f6fd6 0%, #6aa8f0 60%, #bfe0ff 100%);
+      border-bottom: 4px solid #0a3fc4;
       position: relative;
     }
 
@@ -62,16 +82,19 @@
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
+      width: 92%;
+      max-width: 520px;
     }
 
     .perfil-carousel {
       width: 250px;
       height: 250px;
-      border-radius: 50%;
+      border-radius: 12px;
       overflow: hidden;
-      border: 4px solid white;
+      border: 4px solid #0a3fc4;
+      box-shadow: 0 0 0 3px #fff, 3px 5px 14px rgba(0,0,0,.5);
       margin: auto;
-      background-color: #fff;
+      background-color: #ece9d8;
     }
 
     .perfil-carousel img {
@@ -86,34 +109,67 @@
     }
 
     .info {
-      margin-top: 10px;
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: linear-gradient(90deg, #fff 0%, #dce8ff 100%);
+      border: 1px solid #7f9db9;
+      border-radius: 6px;
+      box-shadow: 2px 3px 8px rgba(0,0,0,.35);
     }
 
     .info h1 {
       margin: 5px 0;
-      font-size: 22px;
+      font-size: 20px;
+      color: #0a2a80;
     }
 
     .info p {
       margin: 2px 0;
-      font-size: 14px;
+      font-size: 13px;
+      color: #222;
     }
 
-    /* Conteúdo principal */
+    /* Conteúdo principal - janela estilo XP */
     .conteudo {
-      margin: 320px auto 60px;
+      position: relative;
+      margin: 340px auto 60px;
       max-width: 800px;
-      padding: 0 20px;
+      padding: 52px 20px 20px;
+      background: #ece9d8;
+      border: 3px solid #0a3fc4;
+      border-radius: 9px 9px 4px 4px;
+      box-shadow: 4px 6px 18px rgba(0,0,0,.5);
+    }
+
+    .conteudo::before {
+      content: "📄 Currículo.exe";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 32px;
+      padding: 7px 10px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+      text-shadow: 1px 1px 1px #0a2a80;
+      background: linear-gradient(#3a8cff 0%, #0a5be0 12%, #0950d4 50%, #0a4bc8 88%, #0b3fa8 100%);
+      border-radius: 6px 6px 0 0;
     }
 
     section {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+      padding: 4px 16px 12px;
+      background: #fff;
+      border: 1px solid #919b9c;
+      border-radius: 4px;
     }
 
     h2 {
-      border-bottom: 2px solid #7f8c8d;
+      border-bottom: 1px solid #7f9db9;
       padding-bottom: 5px;
-      color: #2c3e50;
+      color: #0046d5;
+      font-size: 16px;
     }
 
     ul {
@@ -126,7 +182,7 @@
     }
 
     a {
-      color: #2980b9;
+      color: #0046d5;
       text-decoration: none;
     }
 
@@ -262,26 +318,38 @@ serviço.</p>
   }
 
   .toggle {
+    display: block;
     width: 100%;
-    background-color: #2c3e50;
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-    border: none;
+    padding: 10px 12px;
+    font: bold 13px Tahoma, Verdana, Arial, sans-serif;
+    color: #fff;
+    text-shadow: 1px 1px 1px #0a2a80;
     text-align: left;
     cursor: pointer;
-    border-radius: 5px;
+    border: 1px solid #0a3fc4;
+    border-radius: 8px;
+    background: linear-gradient(#6aa3ff 0%, #2a6ee8 50%, #1352c8 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
+  }
+
+  .toggle::before {
+    content: "▸ ";
   }
 
   .toggle:hover {
-    background-color: #34495e;
+    filter: brightness(1.1);
+  }
+
+  .toggle:active {
+    filter: brightness(.92);
   }
 
   .descricao {
     display: none;
-    padding: 10px;
-    background-color: #ecf0f1;
-    border-radius: 5px;
+    padding: 10px 12px;
+    background-color: #fffbe0;
+    border: 1px solid #7f9db9;
+    border-radius: 4px;
     margin-top: 5px;
   }
 </style>
